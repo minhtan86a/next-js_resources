@@ -2,7 +2,8 @@ import Filters from "@/components/Filters";
 import ResourceCard from "@/components/ResourceCard";
 import SearchForm from "@/components/SearchForm";
 import { getResources } from "@/sanity/actions";
-import React from "react";
+
+export const revalidate = 900;
 
 const Page = async () => {
   const resources = await getResources({
@@ -36,7 +37,6 @@ const Page = async () => {
                 id={resource._id}
                 image={resource.image}
                 downloadNumber={resource.views}
-                slug={resource._id}
               />
             ))
           ) : (
